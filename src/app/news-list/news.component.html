@@ -1,0 +1,20 @@
+<div *ngFor="let news of allNewsArray">
+        <collapsible [title]="news.webTitle">
+            <div well-title>
+                <div class="title">{{news.webTitle}}</div>
+            </div>
+            <div well-body>
+                <div class="for-description">{{news.description}}</div>
+                <a href="{{news.webUrl}}" target="_blank" class="url accordion-element">Read full news</a>
+            </div>
+        </collapsible>
+</div>
+
+<section class="pagination">
+    <button (click)="prevPage()" class="prev-page" [disabled]="ablePrevButton">&#12296; Previous Page</button>
+    <div>
+        <input [(ngModel)]="pageInput" class="current-page" (keyup)="changePageOnUserInput($event)">
+        <span> of 1124 pages</span>
+    </div>
+    <button (click)="nextPage()" class="next-page" [disabled]="ableNextButton">Next Page &#12297;</button>
+</section>
